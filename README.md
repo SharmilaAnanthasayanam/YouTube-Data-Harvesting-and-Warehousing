@@ -1,5 +1,4 @@
-# Youtube_Project
-YouTube Data Harvesting and Warehousing using SQL, MongoDB and Streamlit
+# YouTube Data Harvesting and Warehousing using SQL, MongoDB and Streamlit
 
 ### GOAL:
 To create a Streamlit application that allows users to access and analyze data from multiple YouTube channels.
