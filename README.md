@@ -8,14 +8,17 @@ To create a Streamlit application that allows users to access and analyze data f
 Streamlit, Mongodb Compass, SQL
 
 ### Architecture 
-![Youtube Project Architecture](https://github.com/SharmilaAnanthasayanam/Youtube_Project/assets/112562560/6a289104-1e9e-48b9-97ce-0bdb8db04ff9 | width=600)
+<img width="638" alt="image" src="https://github.com/SharmilaAnanthasayanam/Youtube_Project/assets/112562560/9db4205a-7882-4af2-8355-b13f8ee0d339">
+
 
 #### Page 1: Scrap
 
 Enter a channel ID and click enter.
+
 <img width="614" alt="image" src="https://github.com/SharmilaAnanthasayanam/Youtube_Project/assets/112562560/b031cd16-2743-4bf4-8e00-8f66359a7ace">
 
 You can find the channel details below.
+
 <img width="625" alt="image" src="https://github.com/SharmilaAnanthasayanam/Youtube_Project/assets/112562560/b585c6e3-682d-4c2f-91ad-5132ac8f9e01">
 
 
