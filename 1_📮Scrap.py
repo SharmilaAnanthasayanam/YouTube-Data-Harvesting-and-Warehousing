@@ -1,22 +1,23 @@
+'''This module gets the channel id as input and displays the channel details in Streamlit.'''
 import streamlit as st
 from googleapiclient.discovery import build
 import channel
-import pprint
 from dotenv import load_dotenv
 import os
 load_dotenv()
 
 try:
-    st.set_page_config(
-        page_title= "Youtube Scrap"
-    )
-    st.title("YouTube Data Harvesting and Warehousing")
-
     #initialising the session data
     if "data" not in st.session_state:
         st.session_state["data"] = "Enter your channel id in Scrap section"  # Set initial data
     if "channel_id" not in st.session_state:
         st.session_state["channel_id"] = ""
+    
+    #Page Configuration
+    st.set_page_config(
+        page_title= "Youtube Scrap"
+    )
+    st.title("YouTube Data Harvesting and Warehousing")
 
     #Getting the channel id
     channel_id = st.text_input("Enter the channel ID: ")
@@ -36,7 +37,6 @@ try:
         #Displaying the info
         st.write("Please find your channel details")          
         st.write(channel_details)
-        # pprint.pprint(channel_details)
 
 except Exception as e:
     print(e)

@@ -5,12 +5,17 @@ from datetime import datetime
 
 
 def channel_request (channel_id, youtube):
+    '''Gets channel_id and youtube api object
+    Returns channel details dictionary.'''
     try:
+        #Sending request
         request = youtube.channels().list(
             part="snippet,contentDetails,statistics",
             id= channel_id
         )
         response = request.execute()
+
+        #Fetching details from response
         snippet = response['items'][0]['snippet']
         statistics = response['items'][0]['statistics']
 
@@ -25,6 +30,8 @@ def channel_request (channel_id, youtube):
         channel_description = snippet.get('description', "Not Available")
         channel_description = clean(channel_description, no_emoji=True)
         video_count = statistics.get('videoCount', "Not Available")
+
+        #calling playlist_request function to retrieve playlist, video and comment details of the channel.
         playlist_ids = playlist.playlist_request(channel_id, youtube)
 
         channel_details = {"channel_id":channel_id,
@@ -37,6 +44,7 @@ def channel_request (channel_id, youtube):
                         "playlist_ids": playlist_ids
                         }
         return channel_details
+    
     except HTTPError as e:
         return f"{e.status_code}, {e.reason}"
     except KeyError as e:
