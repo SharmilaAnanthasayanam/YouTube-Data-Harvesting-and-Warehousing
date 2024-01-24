@@ -76,6 +76,8 @@ We could see that "Joma Tech" comes first followed by "freecodecamp", "Two minut
 * Maximum number of videos retrieved from api is 50.
 * Maximum number of comments retrieved from api is 20.
 
+Note: developerKey, password and connectionstring variables are to be provided through .env file.
+
 
 
 
