@@ -5,11 +5,16 @@ from cleantext import clean
 
 
 def comments_request(video_id, youtube):
+    '''Gets video ID and youtube api object
+    Returns comments details list'''
     try:
+        #Sending request
         request = youtube.commentThreads().list(
         part="snippet,replies",
         videoId = video_id
         )
+
+        #Fetching details from response
         response = request.execute()
         items = response.get("items", "Not Available")
         comments = []
@@ -27,7 +32,7 @@ def comments_request(video_id, youtube):
                 comment_text = clean(comment_text, no_emoji=True)
                 comment_author = snippet.get("authorDisplayName", "Not Available")
                 comment_published = snippet.get("publishedAt")
-                comments_dict["comment_id"] = comment_id
+                comments_dict["comment_id"] = comment_id 
                 comments_dict["comment_text"] = comment_text
                 comments_dict["comment_author"] = comment_author
                 comments_dict["published_at"] = comment_published
@@ -37,6 +42,10 @@ def comments_request(video_id, youtube):
         return comments
 
     except HttpError as e:
+        reason_permission = "One or more of the requested comment threads cannot be retrieved due to insufficient permissions. The request might not be properly authorized."
+        reason_disabled = "The video identified by the <code><a href=\"/youtube/v3/docs/commentThreads/list#videoId\">videoId</a></code> parameter has disabled comments."
+        if e.reason == reason_permission or e.reason == reason_disabled:
+            return []
         return f"{e.status_code} - {e.reason}"
     except KeyError as e:
         return f"{e} Not Found"
