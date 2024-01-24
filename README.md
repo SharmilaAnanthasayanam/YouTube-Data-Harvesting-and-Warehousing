@@ -5,8 +5,9 @@ YouTube Data Harvesting and Warehousing using SQL, MongoDB and Streamlit
 To create a Streamlit application that allows users to access and analyze data from multiple YouTube channels.
 
 ### Tools Used: 
-Streamlit![image](https://github.com/SharmilaAnanthasayanam/Youtube_Project/assets/112562560/aaee8d6e-c413-4eb7-b1d2-41910f42c664|width=10)
-, Mongodb Compass, SQL
+* Streamlit
+* Mongodb Compass
+* SQL
 
 ### Architecture 
 <img width="610" alt="image" src="https://github.com/SharmilaAnanthasayanam/Youtube_Project/assets/112562560/9db4205a-7882-4af2-8355-b13f8ee0d339">
